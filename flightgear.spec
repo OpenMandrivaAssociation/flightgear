@@ -1,7 +1,7 @@
 %define	name	flightgear
 %define	oname	FlightGear
 %define	version	0.9.10
-%define release	%mkrel 5
+%define release	%mkrel 6
 %define	Summary	The FlightGear Flight Simulator
 
 Summary:	%{Summary}
@@ -53,13 +53,6 @@ cd utils
 
 install -m 755 js_server/js_server $RPM_BUILD_ROOT%_sbindir
 
-mkdir -p $RPM_BUILD_ROOT%{_menudir}
-cat << EOF > $RPM_BUILD_ROOT%{_menudir}/%{name}
-?package(%{name}):command="%{_gamesbindir}/fgfs" icon="%{name}.png" \
-  needs="x11" section="More Applications/Games/Other" title="%{oname}" \
-  longtitle="%{Summary}" xdg="true"
-EOF
-
 mkdir -p $RPM_BUILD_ROOT%{_datadir}/applications
 cat > $RPM_BUILD_ROOT%{_datadir}/applications/mandriva-%{name}.desktop << EOF
 [Desktop Entry]
@@ -70,7 +63,7 @@ Icon=%{name}
 Terminal=false
 Type=Application
 StartupNotify=true
-Categories=Game;Simulation;X-MandrivaLinux-MoreApplications-Games-Other;
+Categories=Game;Simulation
 EOF
 
 install -m644 %{SOURCE11} -D $RPM_BUILD_ROOT%{_miconsdir}/%{name}.png
@@ -91,7 +84,6 @@ rm -rf $RPM_BUILD_ROOT
 %doc README AUTHORS docs-mini/
 %{_bindir}/*
 %{_sbindir}/js_server
-%{_menudir}/%{name}
 %{_datadir}/applications/mandriva-%{name}.desktop
 %{_miconsdir}/%{name}.png
 %{_iconsdir}/%{name}.png
