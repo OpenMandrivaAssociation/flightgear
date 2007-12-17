@@ -10,7 +10,6 @@ Version:	%{version}
 Release:	%{release}
 License:	GPL
 Group:		Games/Other
-BuildRoot:	%{_tmppath}/%{name}-%{version}-%{release}-buildroot
 Source0:	ftp://ftp.flightgear.org/pub/fgfs/Source/%{oname}-%{version}.tar.bz2
 Source11:	%{name}.16.png
 Source12:	%{name}.32.png
