@@ -1,7 +1,7 @@
 %define	name	flightgear
 %define	oname	FlightGear
-%define	version	0.9.10
-%define release	%mkrel 6
+%define	version	1.0.0
+%define release	%mkrel 1
 %define	Summary	The FlightGear Flight Simulator
 
 Summary:	%{Summary}
@@ -10,12 +10,12 @@ Version:	%{version}
 Release:	%{release}
 License:	GPL
 Group:		Games/Other
-Source0:	ftp://ftp.flightgear.org/pub/fgfs/Source/%{oname}-%{version}.tar.bz2
+Source0:	ftp://ftp.flightgear.org/pub/fgfs/Source/%{oname}-%{version}.tar.gz
 Source11:	%{name}.16.png
 Source12:	%{name}.32.png
 Source13:	%{name}.48.png
 Patch0:		FlightGear-0.9.10-fix-x86_64.patch
-BuildRequires:	plib-devel >= 1.8.4 SimGear-devel >= 0.3.10 Mesa-common-devel freealut-devel openal-devel zlib-devel
+BuildRequires:	plib-devel >= 1.8.4 SimGear-devel >= 1.0.0 Mesa-common-devel freealut-devel openal-devel zlib-devel
 Requires:	flightgear-base
 URL:		http://www.flightgear.org/
 Obsoletes:	%{oname}
