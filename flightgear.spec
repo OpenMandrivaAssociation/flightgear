@@ -70,11 +70,15 @@ install -m644 %{SOURCE11} -D $RPM_BUILD_ROOT%{_miconsdir}/%{name}.png
 install -m644 %{SOURCE12} -D $RPM_BUILD_ROOT%{_iconsdir}/%{name}.png
 install -m644 %{SOURCE13} -D $RPM_BUILD_ROOT%{_liconsdir}/%{name}.png
 
+%if %mdkversion < 200900
 %post
 %{update_menus}
+%endif
 
+%if %mdkversion < 200900
 %postun
 %{clean_menus}
+%endif
 
 %clean
 rm -rf $RPM_BUILD_ROOT
