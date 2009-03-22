@@ -1,8 +1,10 @@
 %define	name	flightgear
 %define	oname	FlightGear
 %define	version	1.9.1
-%define release	%mkrel 1
+%define release	%mkrel 2
 %define	Summary	The FlightGear Flight Simulator
+
+%define Werror_cflags %nil
 
 Summary:	%{Summary}
 Name:		%{name}
@@ -16,7 +18,6 @@ Source11:	%{name}.16.png
 Source12:	%{name}.32.png
 Source13:	%{name}.48.png
 Patch0:		FlightGear-0.9.10-fix-x86_64.patch
-Patch1:		FlightGear-1.9.1-string-fmt.patch
 BuildRequires:	plib-devel >= 1.8.4 SimGear-devel >= 1.9.1 mesa-common-devel freealut-devel openal-devel zlib-devel
 BuildRequires:	boost-devel
 Requires:	flightgear-base
@@ -33,7 +34,6 @@ upon by anyone interested in contributing.
 %prep
 %setup -q -n %{oname}-%{version}
 %patch0 -p1
-%patch1 -p1 -b .strfmt
 ./autogen.sh
 
 rm -f docs-mini/*~
