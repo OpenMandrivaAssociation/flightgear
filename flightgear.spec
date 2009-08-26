@@ -1,7 +1,7 @@
 %define	name	flightgear
 %define	oname	FlightGear
 %define	version	1.9.1
-%define release	%mkrel 2
+%define release	%mkrel 3
 %define	Summary	The FlightGear Flight Simulator
 
 %define Werror_cflags %nil
@@ -18,6 +18,7 @@ Source11:	%{name}.16.png
 Source12:	%{name}.32.png
 Source13:	%{name}.48.png
 Patch0:		FlightGear-0.9.10-fix-x86_64.patch
+Patch1:		flightgear-1.9.1-gcc44.patch
 BuildRequires:	plib-devel >= 1.8.4 SimGear-devel >= 1.9.1 mesa-common-devel freealut-devel openal-devel zlib-devel
 BuildRequires:	boost-devel
 Requires:	flightgear-base
@@ -34,6 +35,7 @@ upon by anyone interested in contributing.
 %prep
 %setup -q -n %{oname}-%{version}
 %patch0 -p1
+%patch1 -p0
 ./autogen.sh
 
 rm -f docs-mini/*~
@@ -47,17 +49,17 @@ rm -f docs-mini/*~
 make
 
 %install
-rm -rf $RPM_BUILD_ROOT
-%{makeinstall} bindir=$RPM_BUILD_ROOT%{_gamesbindir}
+rm -rf %{buildroot}
+%{makeinstall} bindir=%{buildroot}%{_gamesbindir}
 
-mkdir -p $RPM_BUILD_ROOT%_sbindir
+mkdir -p %{buildroot}%_sbindir
 cd utils
 %{makeinstall}
 
-install -m 755 js_server/js_server $RPM_BUILD_ROOT%_sbindir
+install -m 755 js_server/js_server %{buildroot}%_sbindir
 
-mkdir -p $RPM_BUILD_ROOT%{_datadir}/applications
-cat > $RPM_BUILD_ROOT%{_datadir}/applications/mandriva-%{name}.desktop << EOF
+mkdir -p %{buildroot}%{_datadir}/applications
+cat > %{buildroot}%{_datadir}/applications/mandriva-%{name}.desktop << EOF
 [Desktop Entry]
 Name=Flight Gear
 Comment=%{Summary}
@@ -69,9 +71,9 @@ StartupNotify=true
 Categories=Game;Simulation
 EOF
 
-install -m644 %{SOURCE11} -D $RPM_BUILD_ROOT%{_miconsdir}/%{name}.png
-install -m644 %{SOURCE12} -D $RPM_BUILD_ROOT%{_iconsdir}/%{name}.png
-install -m644 %{SOURCE13} -D $RPM_BUILD_ROOT%{_liconsdir}/%{name}.png
+install -m644 %{SOURCE11} -D %{buildroot}%{_miconsdir}/%{name}.png
+install -m644 %{SOURCE12} -D %{buildroot}%{_iconsdir}/%{name}.png
+install -m644 %{SOURCE13} -D %{buildroot}%{_liconsdir}/%{name}.png
 
 %if %mdkversion < 200900
 %post
@@ -84,7 +86,7 @@ install -m644 %{SOURCE13} -D $RPM_BUILD_ROOT%{_liconsdir}/%{name}.png
 %endif
 
 %clean
-rm -rf $RPM_BUILD_ROOT
+rm -rf %{buildroot}
 
 %files
 %defattr(-,root,root)
