@@ -1,9 +1,10 @@
 %define	name	flightgear
 %define	oname	FlightGear
-%define	version	1.9.1
-%define release	%mkrel 3
+%define	version	2.0.0
+%define release	%mkrel 1
 %define	Summary	The FlightGear Flight Simulator
 
+%define _disable_ld_as_needed 1
 %define Werror_cflags %nil
 
 Summary:	%{Summary}
@@ -18,7 +19,6 @@ Source11:	%{name}.16.png
 Source12:	%{name}.32.png
 Source13:	%{name}.48.png
 Patch0:		FlightGear-0.9.10-fix-x86_64.patch
-Patch1:		flightgear-1.9.1-gcc44.patch
 BuildRequires:	plib-devel >= 1.8.4 SimGear-devel >= 1.9.1 mesa-common-devel freealut-devel openal-devel zlib-devel
 BuildRequires:	boost-devel
 Requires:	flightgear-base
@@ -35,7 +35,6 @@ upon by anyone interested in contributing.
 %prep
 %setup -q -n %{oname}-%{version}
 %patch0 -p1
-%patch1 -p0
 ./autogen.sh
 
 rm -f docs-mini/*~
@@ -44,8 +43,7 @@ rm -f docs-mini/*~
 %configure2_5x	--bindir=%{_gamesbindir} \
 		--libdir=%{_gamesdatadir} \
 		--datadir=%{_gamesdatadir} \
-		--without-logging \
-		--with-multiplayer
+		--without-logging 
 make
 
 %install
