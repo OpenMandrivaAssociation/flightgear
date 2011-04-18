@@ -1,7 +1,7 @@
 %define	name	flightgear
 %define	oname	FlightGear
 %define	version	2.0.0
-%define release	%mkrel 2
+%define release	%mkrel 3
 %define	Summary	The FlightGear Flight Simulator
 
 %define _disable_ld_as_needed 1
