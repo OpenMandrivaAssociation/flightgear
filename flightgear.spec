@@ -10,6 +10,7 @@ Source11:	%{name}.16.png
 Source12:	%{name}.32.png
 Source13:	%{name}.48.png
 Patch0:		flightgear-2.6.0-linkage.patch
+BuildRequires:	cmake
 BuildRequires:	plib-devel
 BuildRequires:	simgear-devel
 BuildRequires:	freealut-devel
