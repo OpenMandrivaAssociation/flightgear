@@ -1,5 +1,5 @@
 Name:		flightgear
-Version:	2.10.0
+Version:	2.12.1
 Release:	1
 Summary:	The FlightGear Flight Simulator
 License:	GPLv2
