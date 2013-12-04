@@ -22,6 +22,7 @@ BuildRequires:	subversion-devel
 BuildRequires:	simgear-devel >= %{version}
 BuildRequires:	pkgconfig(apr-1)
 BuildRequires:	pkgconfig(freealut)
+BuildRequires:	pkgconfig(glu)
 BuildRequires:	pkgconfig(glut)
 BuildRequires:	pkgconfig(libpng)
 BuildRequires:	pkgconfig(openscenegraph)
