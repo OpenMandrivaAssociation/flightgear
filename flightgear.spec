@@ -1,6 +1,6 @@
 Name:		flightgear
 Version:	2.12.1
-Release:	1
+Release:	2
 Summary:	The FlightGear Flight Simulator
 License:	GPLv2
 Group:		Games/Other
@@ -31,6 +31,7 @@ BuildRequires:	pkgconfig(udev)
 BuildRequires:	pkgconfig(xmu)
 BuildRequires:	pkgconfig(zlib)
 Requires:	%{name}-data = %{version}
+Requires:	openscenegraph-plugins
 
 %description
 The FlightGear project is working to create a sophisticated flight simulator
