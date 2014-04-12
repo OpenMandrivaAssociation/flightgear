@@ -29,6 +29,7 @@ BuildRequires:	pkgconfig(glut)
 BuildRequires:	pkgconfig(libpng)
 BuildRequires:	pkgconfig(openscenegraph)
 BuildRequires:	pkgconfig(openal)
+BuildRequires:	pkgconfig(sqlite3)
 BuildRequires:	pkgconfig(udev)
 BuildRequires:	pkgconfig(xmu)
 BuildRequires:	pkgconfig(zlib)
@@ -61,7 +62,7 @@ done
 %build
 %cmake \
 	-DFG_DATA_DIR=%{_datadir}/%{name} \
-	-DJPEG_FACTORY:BOOL=ON
+	-DJPEG_FACTORY:BOOL=ON -DSYSTEM_SQLITE:BOOL=ON
 
 %make
 
