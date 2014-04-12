@@ -1,3 +1,5 @@
+%define _disable_ld_no_undefined 1
+
 Name:		flightgear
 Version:	3.0.0
 Release:	1
@@ -92,6 +94,7 @@ cd %{buildroot}%{_bindir} && rm GPSsmooth MIDGsmooth UGsmooth metar
 %doc README AUTHORS docs-mini/
 %{_bindir}/*
 %{_datadir}/applications/%{name}.desktop
+%{_datadir}/%{name}
 %{_miconsdir}/%{name}.png
 %{_iconsdir}/%{name}.png
 %{_liconsdir}/%{name}.png
