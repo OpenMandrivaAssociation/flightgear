@@ -1,3 +1,5 @@
+%define _disable_ld_no_undefined 1
+
 Name:		flightgear
 Version:	3.0.0
 Release:	1
