@@ -2,7 +2,7 @@
 
 Name:		flightgear
 Version:	3.0.0
-Release:	1
+Release:	2
 Summary:	The FlightGear Flight Simulator
 License:	GPLv2
 Group:		Games/Other
@@ -73,7 +73,9 @@ mkdir -p %{buildroot}%{_datadir}/applications
 cat > %{buildroot}%{_datadir}/applications/%{name}.desktop << EOF
 [Desktop Entry]
 Name=Flight Gear
+Name[ru]=Flight Gear
 Comment=%{Summary}
+Comment[ru]=Авиасимулятор Flight Gear
 Exec=fgfs
 Icon=%{name}
 Terminal=false
