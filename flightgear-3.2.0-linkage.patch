@@ -1,0 +1,9 @@
+--- flightgear-3.2.0/utils/fgadmin/src/CMakeLists.txt
++++ flightgear-3.2.0/utils/fgadmin/src/CMakeLists.txt	2014-11-25 12:36:10.676443583 +0300
+@@ -1,5 +1,5 @@
+ fltk_wrap_ui(FGAdminUI fgadmin.fl)
+-add_library(FGAdminUI ${FGAdminUI_FLTK_UI_SRCS})
++add_library(FGAdminUI STATIC ${FGAdminUI_FLTK_UI_SRCS})
+ 
+ add_executable(fgadmin WIN32 fgadmin_funcs.cxx main.cxx untarka.c)
+ add_dependencies(fgadmin FGAdminUI)

@@ -1,20 +1,15 @@
-%define _disable_ld_no_undefined 1
-
-Name:		flightgear
-Version:	3.0.0
-Release:	2
 Summary:	The FlightGear Flight Simulator
-License:	GPLv2
+Name:		flightgear
+Version:	3.2.0
+Release:	1
+License:	GPLv2+
 Group:		Games/Other
-URL:		http://www.flightgear.org/
-
+Url:		http://www.flightgear.org/
 Source0:	ftp://ftp.flightgear.org/pub/fgfs/Source/%{name}-%{version}.tar.bz2
 Source11:	%{name}.16.png
 Source12:	%{name}.32.png
 Source13:	%{name}.48.png
-
-Patch0:		flightgear-2.6.0-mandriva-linkage.patch
-
+Patch0:		flightgear-3.2.0-linkage.patch
 BuildRequires:	cmake
 BuildRequires:	git-core
 BuildRequires:	boost-devel
@@ -29,7 +24,7 @@ BuildRequires:	pkgconfig(glut)
 BuildRequires:	pkgconfig(libpng)
 BuildRequires:	pkgconfig(openscenegraph)
 BuildRequires:	pkgconfig(openal)
-BuildRequires:	pkgconfig(sqlite3)
+BuildRequires:  pkgconfig(sqlite3)
 BuildRequires:	pkgconfig(udev)
 BuildRequires:	pkgconfig(xmu)
 BuildRequires:	pkgconfig(zlib)
@@ -41,6 +36,18 @@ The FlightGear project is working to create a sophisticated flight simulator
 framework for the development and pursuit of interesting flight simulator
 ideas. We are developing a solid basic sim that can be expanded and improved
 upon by anyone interested in contributing.
+
+%files
+%doc README AUTHORS docs-mini/
+%{_bindir}/*
+%{_datadir}/applications/%{name}.desktop
+%{_datadir}/%{name}
+%{_miconsdir}/%{name}.png
+%{_iconsdir}/%{name}.png
+%{_liconsdir}/%{name}.png
+%{_mandir}/man1/*
+
+#----------------------------------------------------------------------------
 
 %prep
 %setup -q
@@ -92,14 +99,4 @@ rm -rf %{buildroot}%{_docdir}/FlightGear
 
 # remove obsolete utilities (taken from OBS)
 cd %{buildroot}%{_bindir} && rm GPSsmooth MIDGsmooth UGsmooth metar
-
-%files
-%doc README AUTHORS docs-mini/
-%{_bindir}/*
-%{_datadir}/applications/%{name}.desktop
-%{_datadir}/%{name}
-%{_miconsdir}/%{name}.png
-%{_iconsdir}/%{name}.png
-%{_liconsdir}/%{name}.png
-%{_mandir}/man1/*
 

@@ -1,7 +1,8 @@
 removed_sources:
   flightgear-2.12.1.tar.bz2: ad94d5020d34fa04686c6aa154e36888a43658ee
-sources:
   flightgear-3.0.0.tar.bz2: ca8f44e1148c0c0e6573b690d8f5518c57650d87
+sources:
+  flightgear-3.2.0.tar.bz2: 89b187ecc891f880ec50a562fcf8281b587a37f2
   flightgear.16.png: 1ab5fade6f69f92bfed026d3d12c1274a2684748
   flightgear.32.png: f4da342b21550150caf2c75c3f2f3cc70f908d73
   flightgear.48.png: 70254f44ed352bf77c5758f2adc0dc064fb4ea47
