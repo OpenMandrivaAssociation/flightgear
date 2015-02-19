@@ -1,11 +1,13 @@
+%define _disable_ld_no_undefined 1
+
 Summary:	The FlightGear Flight Simulator
 Name:		flightgear
-Version:	3.2.0
-Release:	2
+Version:	3.4.0
+Release:	1
 License:	GPLv2+
 Group:		Games/Other
 Url:		http://www.flightgear.org/
-Source0:	ftp://ftp.flightgear.org/pub/fgfs/Source/%{name}-%{version}.tar.bz2
+Source0:	http://download.flightgear.org/flightgear/Source/%{name}-%{version}.tar.bz2
 Source11:	%{name}.16.png
 Source12:	%{name}.32.png
 Source13:	%{name}.48.png
@@ -41,7 +43,6 @@ upon by anyone interested in contributing.
 %doc README AUTHORS docs-mini/
 %{_bindir}/*
 %{_datadir}/applications/%{name}.desktop
-%{_datadir}/%{name}
 %{_miconsdir}/%{name}.png
 %{_iconsdir}/%{name}.png
 %{_liconsdir}/%{name}.png
@@ -67,6 +68,8 @@ for ext in Cygwin IRIX Joystick Linux MSVC MSVC8 MacOS SimGear Unix Win32-X auto
 done
 
 %build
+export CC=gcc
+export CXX=g++
 %cmake \
 	-DFG_DATA_DIR=%{_datadir}/%{name} \
 	-DJPEG_FACTORY:BOOL=ON -DSYSTEM_SQLITE:BOOL=ON
