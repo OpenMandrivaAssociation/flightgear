@@ -17,7 +17,9 @@ Patch1:		0005-explicitely-link-with-libX11.patch
 BuildRequires:	cmake
 BuildRequires:	git-core
 BuildRequires:	boost-devel
+BuildRequires:	flite-devel
 BuildRequires:	fltk-devel
+BuildRequires:	gsm-devel
 BuildRequires:	plib-devel
 BuildRequires:	qt5-devel
 BuildRequires:	subversion-devel
@@ -30,6 +32,8 @@ BuildRequires:	pkgconfig(glut)
 BuildRequires:	pkgconfig(libpng)
 BuildRequires:	pkgconfig(openscenegraph)
 BuildRequires:	pkgconfig(openal)
+BuildRequires:	pkgconfig(speex)
+BuildRequires:	pkgconfig(speexdsp)
 BuildRequires:  pkgconfig(sqlite3)
 BuildRequires:	pkgconfig(udev)
 BuildRequires:	pkgconfig(xmu)
@@ -76,7 +80,13 @@ export CC=gcc
 export CXX=g++
 %cmake \
 	-DFG_DATA_DIR=%{_datadir}/%{name} \
-	-DJPEG_FACTORY:BOOL=ON -DSYSTEM_SQLITE:BOOL=ON
+	-DJPEG_FACTORY:BOOL=ON \
+	-DSYSTEM_SQLITE:BOOL=ON \
+	-DSYSTEM_FLITE:BOOL=ON \
+	-DSYSTEM_SPEEX=ON \
+	-DSYSTEM_GSM=ON \
+	-DBUILD_SHARED_LIBS=OFF \
+	-DSIMGEAR_SHARED=ON
 
 %make
 
