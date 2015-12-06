@@ -19,9 +19,11 @@ BuildRequires:	git-core
 BuildRequires:	boost-devel
 BuildRequires:	fltk-devel
 BuildRequires:	plib-devel
+BuildRequires:	qt5-devel
 BuildRequires:	subversion-devel
 BuildRequires:	simgear-devel >= %{version}
 BuildRequires:	pkgconfig(apr-1)
+BuildRequires:	pkgconfig(dbus-1)
 BuildRequires:	pkgconfig(freealut)
 BuildRequires:	pkgconfig(glu)
 BuildRequires:	pkgconfig(glut)
