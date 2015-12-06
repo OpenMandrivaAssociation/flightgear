@@ -1,9 +1,10 @@
 %define _disable_ld_no_undefined 1
+%define _disable_lto 1
 
 Summary:	The FlightGear Flight Simulator
 Name:		flightgear
 Version:	3.4.0
-Release:	1
+Release:	2
 License:	GPLv2+
 Group:		Games/Other
 Url:		http://www.flightgear.org/
@@ -12,6 +13,7 @@ Source11:	%{name}.16.png
 Source12:	%{name}.32.png
 Source13:	%{name}.48.png
 Patch0:		flightgear-3.2.0-linkage.patch
+Patch1:		0005-explicitely-link-with-libX11.patch
 BuildRequires:	cmake
 BuildRequires:	git-core
 BuildRequires:	boost-devel
@@ -52,7 +54,7 @@ upon by anyone interested in contributing.
 
 %prep
 %setup -q
-%patch0 -p1
+%apply_patches
 
 # Taken from OBS
 for f in docs-mini/README.xmlparticles Thanks
