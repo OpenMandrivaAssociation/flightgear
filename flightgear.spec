@@ -3,8 +3,8 @@
 
 Summary:	The FlightGear Flight Simulator
 Name:		flightgear
-Version:	3.4.0
-Release:	2
+Version:	2016.1.1
+Release:	1
 License:	GPLv2+
 Group:		Games/Other
 Url:		http://www.flightgear.org/
