@@ -3,7 +3,7 @@
 Summary:	The FlightGear Flight Simulator
 Name:		flightgear
 Version:	2016.1.1
-Release:	2
+Release:	3
 License:	GPLv2+
 Group:		Games/Other
 Url:		http://www.flightgear.org/
@@ -73,6 +73,7 @@ export CC=gcc
 export CXX=g++
 %cmake \
 	-DFG_DATA_DIR=%{_datadir}/%{name} \
+	-DBUILD_SHARED_LIBS=OFF  \
 	-DJPEG_FACTORY:BOOL=ON -DSYSTEM_SQLITE:BOOL=ON
 
 %make
