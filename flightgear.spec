@@ -3,7 +3,7 @@
 Summary:	The FlightGear Flight Simulator
 Name:		flightgear
 Version:	2016.1.1
-Release:	1
+Release:	2
 License:	GPLv2+
 Group:		Games/Other
 Url:		http://www.flightgear.org/
@@ -17,6 +17,7 @@ BuildRequires:	git-core
 BuildRequires:	boost-devel
 BuildRequires:	fltk-devel
 BuildRequires:	plib-devel
+BuildRequires:	qt5-devel
 BuildRequires:	subversion-devel
 BuildRequires:	simgear-devel >= %{version}
 BuildRequires:	pkgconfig(apr-1)
