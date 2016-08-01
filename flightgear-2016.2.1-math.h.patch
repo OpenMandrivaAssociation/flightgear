@@ -1,0 +1,11 @@
+--- flightgear-2016.2.1/src/Navaids/PositionedOctree.hxx.orig	2016-08-01 23:01:23.977165431 +0100
++++ flightgear-2016.2.1/src/Navaids/PositionedOctree.hxx	2016-08-01 23:01:29.558235236 +0100
+@@ -32,6 +32,8 @@
+ #include <map>
+ #include <functional>
+ 
++#include <math.h>
++
+ // SimGear
+ #include <simgear/math/SGGeometry.hxx>
+ 

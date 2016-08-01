@@ -14,6 +14,7 @@ Source12:	%{name}.32.png
 Source13:	%{name}.48.png
 Patch0:		flightgear-3.2.0-linkage.patch
 Patch1:		0005-explicitely-link-with-libX11.patch
+Patch2:		flightgear-2016.2.1-math.h.patch
 BuildRequires:	cmake
 BuildRequires:	git-core
 BuildRequires:	boost-devel
