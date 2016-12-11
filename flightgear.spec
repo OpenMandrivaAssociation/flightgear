@@ -3,7 +3,7 @@
 
 Summary:	The FlightGear Flight Simulator
 Name:		flightgear
-Version:	2016.2.1
+Version:	2016.4.3
 Release:	1
 License:	GPLv2+
 Group:		Games/Other
@@ -12,9 +12,8 @@ Source0:	http://download.flightgear.org/flightgear/Source/%{name}-%{version}.tar
 Source11:	%{name}.16.png
 Source12:	%{name}.32.png
 Source13:	%{name}.48.png
-Patch0:		flightgear-3.2.0-linkage.patch
-Patch1:		0005-explicitely-link-with-libX11.patch
-Patch2:		flightgear-2016.2.1-math.h.patch
+#Patch1:		0005-explicitely-link-with-libX11.patch
+#Patch2:		flightgear-2016.2.1-math.h.patch
 BuildRequires:	cmake
 BuildRequires:	git-core
 BuildRequires:	boost-devel
