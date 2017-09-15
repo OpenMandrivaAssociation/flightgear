@@ -1,5 +1,6 @@
-sources:
-  flightgear-2016.4.3.tar.bz2: 4928e3a614bdaaa3539eb70c9b83067939ff62a2
-  flightgear.16.png: 1ab5fade6f69f92bfed026d3d12c1274a2684748
-  flightgear.32.png: f4da342b21550150caf2c75c3f2f3cc70f908d73
-  flightgear.48.png: 70254f44ed352bf77c5758f2adc0dc064fb4ea47
+flightgear-2017.2.1.tar.bz2: 447e5a2ca1930d57064f7dc1f4353541c5a6a450
+flightgear.16.png:  a2092390e93476f241318138b08003f55b8a44ca
+flightgear.32.png:  655597c8087b916f6f50eca66c622827ea92f1a3
+flightgear.48.png:  71b39cf4c17e1fc8e71a35eaf47dee0e258df28e
+flightgear.64.png:  05e337b34797fa2e18a173aebf8bba4d381998fa
+flightgear.128.png: 0af2e3d10b613e4b88cfa8ee45ac85c242f2ca42
