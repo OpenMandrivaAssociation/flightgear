@@ -3,22 +3,28 @@
 
 Summary:	The FlightGear Flight Simulator
 Name:		flightgear
-Version:	2016.4.3
+Version:	2017.2.1
 Release:	1
 License:	GPLv2+
 Group:		Games/Other
 Url:		http://www.flightgear.org/
-Source0:	http://download.flightgear.org/flightgear/Source/%{name}-%{version}.tar.bz2
+Source0: https://sourceforge.net/projects/flightgear/files/release-2017.2/%{name}-%{version}.tar.bz2
 Source11:	%{name}.16.png
 Source12:	%{name}.32.png
 Source13:	%{name}.48.png
+Source14:	%{name}.64.png
+Source15:	%{name}.128.png
 #Patch1:		0005-explicitely-link-with-libX11.patch
 #Patch2:		flightgear-2016.2.1-math.h.patch
+BuildRequires:	task-c-devel
+BuildRequires:	task-c++-devel
 BuildRequires:	cmake
+BuildRequires:	cmake(Qt5Qml)
 BuildRequires:	git-core
 BuildRequires:	boost-devel
 BuildRequires:	flite-devel
 BuildRequires:	fltk-devel
+BuildRequires:	glew-devel
 BuildRequires:	gsm-devel
 BuildRequires:	plib-devel
 BuildRequires:	qt5-devel
@@ -34,7 +40,7 @@ BuildRequires:	pkgconfig(openscenegraph)
 BuildRequires:	pkgconfig(openal)
 BuildRequires:	pkgconfig(speex)
 BuildRequires:	pkgconfig(speexdsp)
-BuildRequires:  pkgconfig(sqlite3)
+BuildRequires: pkgconfig(sqlite3)
 BuildRequires:	pkgconfig(udev)
 BuildRequires:	pkgconfig(xmu)
 BuildRequires:	pkgconfig(zlib)
@@ -51,9 +57,13 @@ upon by anyone interested in contributing.
 %doc README AUTHORS docs-mini/
 %{_bindir}/*
 %{_datadir}/applications/%{name}.desktop
-%{_miconsdir}/%{name}.png
-%{_iconsdir}/%{name}.png
-%{_liconsdir}/%{name}.png
+#%{_miconsdir}/%{name}.png
+%{_iconsdir}/hicolor/16x16/apps/%{name}.png
+%{_iconsdir}/hicolor/32x32/apps/%{name}.png
+%{_iconsdir}/hicolor/48x48/apps/%{name}.png
+%{_iconsdir}/hicolor/64x64/apps/%{name}.png
+%{_iconsdir}/hicolor/128x128/apps/%{name}.png
+#%{_liconsdir}/%{name}.png
 %{_mandir}/man1/*
 
 #----------------------------------------------------------------------------
@@ -94,11 +104,16 @@ export CXX=g++
 %makeinstall_std -C build
 
 mkdir -p %{buildroot}%{_datadir}/applications
+mkdir -p %{buildroot}%{_iconsdir}/hicolor/16x16/apps
+mkdir -p %{buildroot}%{_iconsdir}/hicolor/32x32/apps
+mkdir -p %{buildroot}%{_iconsdir}/hicolor/48x48/apps
+mkdir -p %{buildroot}%{_iconsdir}/hicolor/64x64/apps
+mkdir -p %{buildroot}%{_iconsdir}/hicolor/128x128/apps
 cat > %{buildroot}%{_datadir}/applications/%{name}.desktop << EOF
 [Desktop Entry]
 Name=Flight Gear
 Name[ru]=Flight Gear
-Comment=%{Summary}
+Comment=Flight Gear
 Comment[ru]=Авиасимулятор Flight Gear
 Exec=fgfs
 Icon=%{name}
@@ -108,9 +123,13 @@ StartupNotify=true
 Categories=Game;Simulation;
 EOF
 
-install -m644 %{SOURCE11} -D %{buildroot}%{_miconsdir}/%{name}.png
-install -m644 %{SOURCE12} -D %{buildroot}%{_iconsdir}/%{name}.png
-install -m644 %{SOURCE13} -D %{buildroot}%{_liconsdir}/%{name}.png
+#install -m644 %{SOURCE11} -D %{buildroot}%{_miconsdir}/%{name}.png
+install -m644 %{SOURCE11} -D %{buildroot}%{_iconsdir}/hicolor/16x16/apps/%{name}.png
+install -m644 %{SOURCE12} -D %{buildroot}%{_iconsdir}/hicolor/32x32/apps/%{name}.png
+install -m644 %{SOURCE13} -D %{buildroot}%{_iconsdir}/hicolor/48x48/apps/%{name}.png
+install -m644 %{SOURCE14} -D %{buildroot}%{_iconsdir}/hicolor/64x64/apps/%{name}.png
+install -m644 %{SOURCE15} -D %{buildroot}%{_iconsdir}/hicolor/128x128/apps/%{name}.png
+#install -m644 %{SOURCE13} -D %{buildroot}%{_liconsdir}/%{name}.png
 
 rm -rf %{buildroot}%{_docdir}/FlightGear
 
