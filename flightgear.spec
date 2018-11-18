@@ -3,12 +3,12 @@
 
 Summary:	The FlightGear Flight Simulator
 Name:		flightgear
-Version:	2017.2.1
+Version:	2018.2.2
 Release:	1
 License:	GPLv2+
 Group:		Games/Other
 Url:		http://www.flightgear.org/
-Source0: https://sourceforge.net/projects/flightgear/files/release-2017.2/%{name}-%{version}.tar.bz2
+Source0: https://sourceforge.net/projects/flightgear/files/release-2018.2/%{name}-%{version}.tar.bz2
 Source11:	%{name}.16.png
 Source12:	%{name}.32.png
 Source13:	%{name}.48.png
@@ -16,8 +16,6 @@ Source14:	%{name}.64.png
 Source15:	%{name}.128.png
 #Patch1:		0005-explicitely-link-with-libX11.patch
 #Patch2:		flightgear-2016.2.1-math.h.patch
-BuildRequires:	task-c-devel
-BuildRequires:	task-c++-devel
 BuildRequires:	cmake
 BuildRequires:	cmake(Qt5Qml)
 BuildRequires:	git-core
@@ -57,14 +55,21 @@ upon by anyone interested in contributing.
 %doc README AUTHORS docs-mini/
 %{_bindir}/*
 %{_datadir}/applications/%{name}.desktop
-#%{_miconsdir}/%{name}.png
+%{_datadir}/applications/org.flightgear.FlightGear.desktop
 %{_iconsdir}/hicolor/16x16/apps/%{name}.png
+%{_iconsdir}/hicolor/22x22/apps/%{name}.png
+%{_iconsdir}/hicolor/24x24/apps/%{name}.png
 %{_iconsdir}/hicolor/32x32/apps/%{name}.png
 %{_iconsdir}/hicolor/48x48/apps/%{name}.png
 %{_iconsdir}/hicolor/64x64/apps/%{name}.png
 %{_iconsdir}/hicolor/128x128/apps/%{name}.png
-#%{_liconsdir}/%{name}.png
+%{_iconsdir}/hicolor/scalable/apps/%{name}.svg
 %{_mandir}/man1/*
+%{_mandir}/man5/*
+%{_mandir}/it/man1/*
+%{_mandir}/it/man5/*
+%{_datadir}/bash-completion/completions/fgfs
+%{_datadir}/zsh/site-functions/_fgfs
 
 #----------------------------------------------------------------------------
 
