@@ -34,7 +34,7 @@ BuildRequires:	pkgconfig(freealut)
 BuildRequires:	pkgconfig(glu)
 BuildRequires:	pkgconfig(glut)
 BuildRequires:	pkgconfig(libpng)
-BuildRequires:	pkgconfig(openscenegraph)
+BuildRequires:	pkgconfig(openscenegraph) < 3.5
 BuildRequires:	pkgconfig(openal)
 BuildRequires:	pkgconfig(speex)
 BuildRequires:	pkgconfig(speexdsp)
@@ -43,7 +43,7 @@ BuildRequires:	pkgconfig(udev)
 BuildRequires:	pkgconfig(xmu)
 BuildRequires:	pkgconfig(zlib)
 Requires:	%{name}-data = %{version}
-Requires:	openscenegraph-plugins
+Requires:	openscenegraph34-plugins
 
 %description
 The FlightGear project is working to create a sophisticated flight simulator
