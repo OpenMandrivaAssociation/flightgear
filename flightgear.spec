@@ -18,6 +18,8 @@ Source15:	%{name}.128.png
 #Patch2:		flightgear-2016.2.1-math.h.patch
 BuildRequires:	cmake
 BuildRequires:	cmake(Qt5Qml)
+BuildRequires:	cmake(Qt5QuickWidgets)
+BuildRequires:	cmake(Qt5Widgets)
 BuildRequires:	git-core
 BuildRequires:	boost-devel
 BuildRequires:	flite-devel
