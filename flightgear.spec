@@ -104,7 +104,7 @@ export CXX=g++
 	-DBUILD_SHARED_LIBS=OFF \
 	-DSIMGEAR_SHARED=ON
 
-%make
+%make -j1
 
 %install
 %makeinstall_std -C build
