@@ -18,6 +18,7 @@ BuildRequires:	cmake
 BuildRequires:	cmake(Qt5Qml)
 BuildRequires: cmake(Qt5QuickWidgets)
 BuildRequires: cmake(Qt5Widgets)
+BuildRequires:	curl-devel
 BuildRequires:	git-core
 BuildRequires:	boost-devel
 BuildRequires:	flite-devel
