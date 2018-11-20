@@ -31,6 +31,7 @@ BuildRequires:	simgear-devel >= %{version}
 BuildRequires:	pkgconfig(apr-1)
 BuildRequires:	pkgconfig(dbus-1)
 BuildRequires:	pkgconfig(freealut)
+BuildRequires:	pkgconfig(freetype2)
 BuildRequires:	pkgconfig(glu)
 BuildRequires:	pkgconfig(glut)
 BuildRequires:	pkgconfig(libpng)
