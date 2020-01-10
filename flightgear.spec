@@ -77,7 +77,7 @@ upon by anyone interested in contributing.
 
 %prep
 %setup -q
-%apply_patches
+%autopatch -p1
 
 # Taken from OBS
 for f in docs-mini/README.xmlparticles Thanks
