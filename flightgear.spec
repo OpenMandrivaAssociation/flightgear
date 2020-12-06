@@ -3,12 +3,12 @@
 
 Summary:	The FlightGear Flight Simulator
 Name:		flightgear
-Version:	2018.2.2
-Release:	2
+Version:	2020.3.4
+Release:	1
 License:	GPLv2+
 Group:		Games/Other
 Url:		http://www.flightgear.org/
-Source0: https://sourceforge.net/projects/flightgear/files/release-2018.2/%{name}-%{version}.tar.bz2
+Source0: https://sourceforge.net/projects/flightgear/files/release-2020.3/%{name}-%{version}.tar.bz2
 Source11:	%{name}.16.png
 Source12:	%{name}.32.png
 Source13:	%{name}.48.png
@@ -105,10 +105,10 @@ export CXX=g++
 	-DBUILD_SHARED_LIBS=OFF \
 	-DSIMGEAR_SHARED=ON
 
-%make
+%make_build
 
 %install
-%makeinstall_std -C build
+%make_install -C build
 
 mkdir -p %{buildroot}%{_datadir}/applications
 mkdir -p %{buildroot}%{_iconsdir}/hicolor/16x16/apps
