@@ -18,9 +18,11 @@ Source15:	%{name}.128.png
 Patch0:		flightgear-2020.3.5-fix-build-openmandriva.patch
 
 BuildRequires:	cmake
+BuildRequires:	ninja
+BuildRequires:	cmake(SimGear) >= %{version}
 BuildRequires:	cmake(Qt5Qml)
-BuildRequires: cmake(Qt5QuickWidgets)
-BuildRequires: cmake(Qt5Widgets)
+BuildRequires:	cmake(Qt5QuickWidgets)
+BuildRequires:	cmake(Qt5Widgets)
 BuildRequires:	curl-devel
 BuildRequires:	git-core
 BuildRequires:	boost-devel
@@ -31,7 +33,6 @@ BuildRequires:	gsm-devel
 BuildRequires:	plib-devel
 BuildRequires:	qt5-devel
 BuildRequires:	subversion-devel
-BuildRequires:	simgear-devel >= %{version}
 BuildRequires:	pkgconfig(apr-1)
 BuildRequires:	pkgconfig(dbus-1)
 BuildRequires:	pkgconfig(freealut)
@@ -39,16 +40,16 @@ BuildRequires:	pkgconfig(freetype2)
 BuildRequires:	pkgconfig(glu)
 BuildRequires:	pkgconfig(glut)
 BuildRequires:	pkgconfig(libpng)
-BuildRequires:	pkgconfig(openscenegraph) < 3.5
+BuildRequires:	pkgconfig(openscenegraph)
 BuildRequires:	pkgconfig(openal)
 BuildRequires:	pkgconfig(speex)
 BuildRequires:	pkgconfig(speexdsp)
-BuildRequires: pkgconfig(sqlite3)
+BuildRequires:	pkgconfig(sqlite3)
 BuildRequires:	pkgconfig(udev)
 BuildRequires:	pkgconfig(xmu)
 BuildRequires:	pkgconfig(zlib)
 Requires:	%{name}-data = %{version}
-Requires:	openscenegraph34-plugins
+Requires:	openscenegraph-plugins
 
 %description
 The FlightGear project is working to create a sophisticated flight simulator
@@ -75,6 +76,7 @@ upon by anyone interested in contributing.
 %{_mandir}/it/man5/*
 %{_datadir}/bash-completion/completions/fgfs
 %{_datadir}/zsh/site-functions/_fgfs
+%{_datadir}/metainfo/org.flightgear.FlightGear.metainfo.xml
 
 #----------------------------------------------------------------------------
 
@@ -96,9 +98,8 @@ for ext in Cygwin IRIX Joystick Linux MSVC MSVC8 MacOS SimGear Unix Win32-X auto
 done
 
 %build
-#export CC=gcc
-#export CXX=g++
 %cmake \
+	-G Ninja \
 	-DFG_DATA_DIR=%{_datadir}/%{name} \
 	-DJPEG_FACTORY:BOOL=ON \
 	-DSYSTEM_SQLITE:BOOL=ON \
@@ -108,10 +109,10 @@ done
 	-DBUILD_SHARED_LIBS=OFF \
 	-DSIMGEAR_SHARED=ON
 
-%make_build
+%ninja_build -C build
 
 %install
-%make_install -C build
+%ninja_install -C build
 
 mkdir -p %{buildroot}%{_datadir}/applications
 mkdir -p %{buildroot}%{_iconsdir}/hicolor/16x16/apps
