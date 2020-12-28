@@ -1,23 +1,25 @@
-%define _disable_ld_no_undefined 1
-%define _disable_lto 1
-
 Summary:	The FlightGear Flight Simulator
 Name:		flightgear
-Version:	2018.2.2
-Release:	2
+Version:	2020.3.5
+Release:	1
 License:	GPLv2+
 Group:		Games/Other
 Url:		http://www.flightgear.org/
-Source0: https://sourceforge.net/projects/flightgear/files/release-2018.2/%{name}-%{version}.tar.bz2
+Source0: https://sourceforge.net/projects/flightgear/files/release-2020.3/%{name}-%{version}.tar.bz2
 Source11:	%{name}.16.png
 Source12:	%{name}.32.png
 Source13:	%{name}.48.png
 Source14:	%{name}.64.png
 Source15:	%{name}.128.png
+
+Patch0:		flightgear-2020.3.5-fix-build-openmandriva.patch
+
 BuildRequires:	cmake
+BuildRequires:	ninja
+BuildRequires:	cmake(SimGear) >= %{version}
 BuildRequires:	cmake(Qt5Qml)
-BuildRequires: cmake(Qt5QuickWidgets)
-BuildRequires: cmake(Qt5Widgets)
+BuildRequires:	cmake(Qt5QuickWidgets)
+BuildRequires:	cmake(Qt5Widgets)
 BuildRequires:	curl-devel
 BuildRequires:	git-core
 BuildRequires:	boost-devel
@@ -28,7 +30,6 @@ BuildRequires:	gsm-devel
 BuildRequires:	plib-devel
 BuildRequires:	qt5-devel
 BuildRequires:	subversion-devel
-BuildRequires:	simgear-devel >= %{version}
 BuildRequires:	pkgconfig(apr-1)
 BuildRequires:	pkgconfig(dbus-1)
 BuildRequires:	pkgconfig(freealut)
@@ -36,16 +37,16 @@ BuildRequires:	pkgconfig(freetype2)
 BuildRequires:	pkgconfig(glu)
 BuildRequires:	pkgconfig(glut)
 BuildRequires:	pkgconfig(libpng)
-BuildRequires:	pkgconfig(openscenegraph) < 3.5
+BuildRequires:	pkgconfig(openscenegraph)
 BuildRequires:	pkgconfig(openal)
 BuildRequires:	pkgconfig(speex)
 BuildRequires:	pkgconfig(speexdsp)
-BuildRequires: pkgconfig(sqlite3)
+BuildRequires:	pkgconfig(sqlite3)
 BuildRequires:	pkgconfig(udev)
 BuildRequires:	pkgconfig(xmu)
 BuildRequires:	pkgconfig(zlib)
 Requires:	%{name}-data = %{version}
-Requires:	openscenegraph34-plugins
+Requires:	openscenegraph-plugins
 
 %description
 The FlightGear project is working to create a sophisticated flight simulator
@@ -72,12 +73,12 @@ upon by anyone interested in contributing.
 %{_mandir}/it/man5/*
 %{_datadir}/bash-completion/completions/fgfs
 %{_datadir}/zsh/site-functions/_fgfs
+%{_datadir}/metainfo/org.flightgear.FlightGear.metainfo.xml
 
 #----------------------------------------------------------------------------
 
 %prep
-%setup -q
-%autopatch -p1
+%autosetup -p1
 
 # Taken from OBS
 for f in docs-mini/README.xmlparticles Thanks
@@ -92,10 +93,8 @@ for ext in Cygwin IRIX Joystick Linux MSVC MSVC8 MacOS SimGear Unix Win32-X auto
     rm -f docs-mini/README.${ext}
 done
 
-%build
-export CC=gcc
-export CXX=g++
 %cmake \
+	-G Ninja \
 	-DFG_DATA_DIR=%{_datadir}/%{name} \
 	-DJPEG_FACTORY:BOOL=ON \
 	-DSYSTEM_SQLITE:BOOL=ON \
@@ -105,10 +104,11 @@ export CXX=g++
 	-DBUILD_SHARED_LIBS=OFF \
 	-DSIMGEAR_SHARED=ON
 
-%make
+%build
+%ninja_build -C build
 
 %install
-%makeinstall_std -C build
+%ninja_install -C build
 
 mkdir -p %{buildroot}%{_datadir}/applications
 mkdir -p %{buildroot}%{_iconsdir}/hicolor/16x16/apps
