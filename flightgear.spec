@@ -14,6 +14,9 @@ Source12:	%{name}.32.png
 Source13:	%{name}.48.png
 Source14:	%{name}.64.png
 Source15:	%{name}.128.png
+
+Patch0:		flightgear-2020.3.5-fix-build-openmandriva.patch
+
 BuildRequires:	cmake
 BuildRequires:	cmake(Qt5Qml)
 BuildRequires: cmake(Qt5QuickWidgets)
