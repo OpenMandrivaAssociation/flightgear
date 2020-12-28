@@ -1,0 +1,14 @@
+diff -uraN flightgear-2020.3.5/CMakeLists.txt omv-flightgear-2020.3.5/CMakeLists.txt
+--- flightgear-2020.3.5/CMakeLists.txt	2020-12-18 12:43:09.000000000 +0100
++++ omv-flightgear-2020.3.5/CMakeLists.txt	2020-12-28 11:27:14.609114756 +0100
+@@ -514,8 +514,8 @@
+ 
+     set(SIMD_COMPILER_FLAGS "-msse2 -mfpmath=sse -ftree-vectorize -ftree-slp-vectorize")
+ 
+-  set(CMAKE_XCODE_ATTRIBUTE_CLANG_CXX_LIBRARY "libc++")
+-   set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -stdlib=libc++")
++  #set(CMAKE_XCODE_ATTRIBUTE_CLANG_CXX_LIBRARY "libc++")
++   #set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -stdlib=libc++")
+    set(WARNING_FLAGS_C "-Wall")
+ endif()
+ 
