@@ -1,5 +1,5 @@
-%define _disable_ld_no_undefined 1
-%define _disable_lto 1
+#define _disable_ld_no_undefined 1
+#define _disable_lto 1
 
 Summary:	The FlightGear Flight Simulator
 Name:		flightgear
@@ -81,8 +81,7 @@ upon by anyone interested in contributing.
 #----------------------------------------------------------------------------
 
 %prep
-%setup -q
-%autopatch -p1
+%autosetup -p1
 
 # Taken from OBS
 for f in docs-mini/README.xmlparticles Thanks
@@ -97,7 +96,6 @@ for ext in Cygwin IRIX Joystick Linux MSVC MSVC8 MacOS SimGear Unix Win32-X auto
     rm -f docs-mini/README.${ext}
 done
 
-%build
 %cmake \
 	-G Ninja \
 	-DFG_DATA_DIR=%{_datadir}/%{name} \
@@ -109,6 +107,7 @@ done
 	-DBUILD_SHARED_LIBS=OFF \
 	-DSIMGEAR_SHARED=ON
 
+%build
 %ninja_build -C build
 
 %install
