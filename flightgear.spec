@@ -3,7 +3,7 @@
 
 Summary:	The FlightGear Flight Simulator
 Name:		flightgear
-Version:	2020.3.4
+Version:	2020.3.5
 Release:	1
 License:	GPLv2+
 Group:		Games/Other
@@ -93,8 +93,8 @@ for ext in Cygwin IRIX Joystick Linux MSVC MSVC8 MacOS SimGear Unix Win32-X auto
 done
 
 %build
-export CC=gcc
-export CXX=g++
+#export CC=gcc
+#export CXX=g++
 %cmake \
 	-DFG_DATA_DIR=%{_datadir}/%{name} \
 	-DJPEG_FACTORY:BOOL=ON \
