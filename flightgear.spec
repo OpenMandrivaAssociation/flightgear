@@ -1,6 +1,3 @@
-#define _disable_ld_no_undefined 1
-#define _disable_lto 1
-
 Summary:	The FlightGear Flight Simulator
 Name:		flightgear
 Version:	2020.3.5
