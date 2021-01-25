@@ -13,6 +13,7 @@ Source14:	%{name}.64.png
 Source15:	%{name}.128.png
 
 Patch0:		flightgear-2020.3.5-fix-build-openmandriva.patch
+Patch1:		flightgear-2020.3.6-non-x86.patch
 
 BuildRequires:	cmake
 BuildRequires:	ninja
