@@ -1,6 +1,6 @@
 Summary:	The FlightGear Flight Simulator
 Name:		flightgear
-Version:	2020.3.6
+Version:	2020.3.9
 Release:	1
 License:	GPLv2+
 Group:		Games/Other
@@ -21,6 +21,8 @@ BuildRequires:	cmake(SimGear) >= %{version}
 BuildRequires:	cmake(Qt5Qml)
 BuildRequires:	cmake(Qt5QuickWidgets)
 BuildRequires:	cmake(Qt5Widgets)
+BuildRequires:	cmake(Qt5LinguistTools)
+BuildRequires:	qt5-linguist
 BuildRequires:	curl-devel
 BuildRequires:	git-core
 BuildRequires:	boost-devel
@@ -38,6 +40,8 @@ BuildRequires:	pkgconfig(freetype2)
 BuildRequires:	pkgconfig(glu)
 BuildRequires:	pkgconfig(glut)
 BuildRequires:	pkgconfig(libpng)
+BuildRequires:	pkgconfig(liblzma)
+BuildRequires:	pkgconfig(libevent)
 BuildRequires:	pkgconfig(openscenegraph)
 BuildRequires:	pkgconfig(openal)
 BuildRequires:	pkgconfig(speex)
