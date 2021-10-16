@@ -1,6 +1,6 @@
 Summary:	The FlightGear Flight Simulator
 Name:		flightgear
-Version:	2020.3.9
+Version:	2020.3.11
 Release:	1
 License:	GPLv2+
 Group:		Games/Other
