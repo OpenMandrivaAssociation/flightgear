@@ -86,12 +86,12 @@ upon by anyone interested in contributing.
 %autosetup -p1
 
 # Taken from OBS
-for f in docs-mini/README.xmlparticles Thanks
-do
-    iconv -f iso-8859-1 -t utf-8 -o ${f}.utf8 ${f}
-    mv -f ${f}.utf8 ${f}
-done
-sed -i 's/\r//' docs-mini/AptNavFAQ.FlightGear.html
+#for f in docs-mini/README.xmlparticles Thanks
+#do
+#    iconv -f iso-8859-1 -t utf-8 -o ${f}.utf8 ${f}
+#    mv -f ${f}.utf8 ${f}
+#done
+#sed -i 's/\r//' docs-mini/AptNavFAQ.FlightGear.html
 
 # remove some unneeded doc files
 for ext in Cygwin IRIX Joystick Linux MSVC MSVC8 MacOS SimGear Unix Win32-X autoconf mingw plib src xmlsyntax; do
