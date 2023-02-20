@@ -1,7 +1,7 @@
 Summary:	The FlightGear Flight Simulator
 Name:		flightgear
-Version:	2020.3.15
-Release:	2
+Version:	2020.3.17
+Release:	1
 License:	GPLv2+
 Group:		Games/Other
 Url:		http://www.flightgear.org/
@@ -98,6 +98,7 @@ for ext in Cygwin IRIX Joystick Linux MSVC MSVC8 MacOS SimGear Unix Win32-X auto
     rm -f docs-mini/README.${ext}
 done
 
+export CXXFLAGS="%{optflags} -fPIC"
 %cmake \
 	-G Ninja \
 	-DFG_DATA_DIR=%{_datadir}/%{name} \
