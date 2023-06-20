@@ -1,6 +1,6 @@
 Summary:	The FlightGear Flight Simulator
 Name:		flightgear
-Version:	2020.3.17
+Version:	2020.3.18
 Release:	1
 License:	GPLv2+
 Group:		Games/Other
@@ -14,6 +14,7 @@ Source15:	%{name}.128.png
 
 Patch0:		flightgear-2020.3.5-fix-build-openmandriva.patch
 Patch1:		flightgear-2020.3.6-non-x86.patch
+Patch2:		flightgear-2020.3.18-clang16.patch
 
 BuildRequires:	cmake
 BuildRequires:	ninja
