@@ -1,6 +1,6 @@
 Summary:	The FlightGear Flight Simulator
 Name:		flightgear
-Version:	2020.3.18
+Version:	2020.3.19
 Release:	1
 License:	GPLv2+
 Group:		Games/Other
@@ -60,7 +60,7 @@ framework for the development and pursuit of interesting flight simulator
 ideas. We are developing a solid basic sim that can be expanded and improved
 upon by anyone interested in contributing.
 
-%files
+%files -f %{name}.lang
 %doc README AUTHORS docs-mini/
 %{_bindir}/*
 %{_datadir}/applications/%{name}.desktop
@@ -75,8 +75,6 @@ upon by anyone interested in contributing.
 %{_iconsdir}/hicolor/scalable/apps/%{name}.svg
 %{_mandir}/man1/*
 %{_mandir}/man5/*
-%{_mandir}/it/man1/*
-%{_mandir}/it/man5/*
 %{_datadir}/bash-completion/completions/fgfs
 %{_datadir}/zsh/site-functions/_fgfs
 %{_datadir}/metainfo/org.flightgear.FlightGear.metainfo.xml
@@ -117,6 +115,8 @@ export CXXFLAGS="%{optflags} -fPIC"
 %install
 %ninja_install -C build
 
+%find_lang %{name} --with-man --all-name
+
 mkdir -p %{buildroot}%{_datadir}/applications
 mkdir -p %{buildroot}%{_iconsdir}/hicolor/16x16/apps
 mkdir -p %{buildroot}%{_iconsdir}/hicolor/32x32/apps
@@ -149,4 +149,3 @@ rm -rf %{buildroot}%{_docdir}/FlightGear
 
 # remove obsolete utilities (taken from OBS)
 cd %{buildroot}%{_bindir} && rm GPSsmooth MIDGsmooth UGsmooth metar
-
