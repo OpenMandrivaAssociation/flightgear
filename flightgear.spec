@@ -4,7 +4,7 @@ Version:	2020.3.19
 Release:	1
 License:	GPLv2+
 Group:		Games/Other
-Url:		http://www.flightgear.org/
+Url:		https://www.flightgear.org/
 Source0: https://sourceforge.net/projects/flightgear/files/release-2020.3/%{name}-%{version}.tar.bz2
 Source11:	%{name}.16.png
 Source12:	%{name}.32.png
